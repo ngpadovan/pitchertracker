@@ -24,7 +24,7 @@
         </tr>
       </thead>
       <tbody>
-        <% pitchers.forEach(function(pitcher) { %>
+        <!-- <% pitchers.forEach(function(pitcher) { %>
         <tr>
           <td><%= pitcher.firstName %> <%= pitcher.lastName %></td>
           <td><%= pitcher.team %></td>
@@ -32,7 +32,20 @@
           <td><%= pitcher.throws %></td>
           <td><a href="/pitchers/<%= pitcher._id %>">DETAILS</a></td>
         </tr>
-        <% }); %>
+        <% }); %> -->
+        <% if (user) { %>
+          <% pitchers.forEach(function(pitcher) { %>
+            <% if (pitcher.userId.toString() === user._id.toString()) { %>
+              <tr>
+                <td><%= pitcher.firstName %> <%= pitcher.lastName %></td>
+                <td><%= pitcher.team %></td>
+                <td><%= pitcher.jerseyNo %></td>
+                <td><%= pitcher.throws %></td>
+                <td><a href="/pitchers/<%= pitcher._id %>">DETAILS</a></td>
+              </tr>
+            <% } %>
+          <% }); %>
+        <% } %>
       </tbody>
     </table>
   </body>

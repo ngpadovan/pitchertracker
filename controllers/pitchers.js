@@ -17,16 +17,32 @@ function newPitcher(req, res) {
   res.render('pitchers/new', { title: 'Add pitcher', errorMsg: '' });
 }
 
+// async function create(req, res) {
+//   try {
+//     for (let key in req.body) {
+//         if (req.body[key] === '') delete req.body[key];
+//     }
+//     await Pitcher.create(req.body);
+//     res.redirect('/pitchers/index');
+// } catch (error) {
+//     // Handle errors here, e.g., validation errors or database errors
+//     console.error('Error:', error);
+//     res.status(500).send('An error occurred');
+// }
+// };
+
 async function create(req, res) {
   try {
-    for (let key in req.body) {
-        if (req.body[key] === '') delete req.body[key];
-    }
-    await Pitcher.create(req.body);
-    res.redirect('/pitchers/index');
-} catch (error) {
-    // Handle errors here, e.g., validation errors or database errors
+    const pitcher = new Pitcher(req.body);
+    pitcher.userId = req.user._id; 
+    for (let key in pitcher) {
+      if (pitcher[key] === '') {
+        delete pitcher[key];
+      }
+    } await pitcher.save();
+    res.redirect(`/pitchers/index`);
+  } catch (error) {
     console.error('Error:', error);
-    res.status(500).send('An error occurred');
+    res.redirect('/pitchers/new');
+  }
 }
-};

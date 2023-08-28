@@ -43,6 +43,12 @@ const pitcherSchema = new Schema({
         type: Date,
         required: true,
     },
+    userId: {
+        type: Schema.Types.ObjectId, // Assuming user IDs are stored as ObjectIds
+        ref: 'User', // Reference to the User model
+        required: true,
+    },
+    
 });
 
 

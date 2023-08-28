@@ -12,5 +12,38 @@
       <p>LogIn to track your favorite pitchers!</p>
     <% } %>
     <a href="/pitchers/new">Add Pitcher</a>
+
+    <table>
+      <thead>
+          <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Team</th>
+              <th>Jersey Number</th>
+              <th>Throws</th>
+              <th>ERA</th>
+              <th>Wins</th>
+              <th>Losses</th>
+              <th>Birthdate (Age)</th>
+              <th>Details</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% pitchers.forEach(function(pitcher) { %>
+              <tr>
+                  <td><%= pitcher.firstName %></td>
+                  <td><%= pitcher.lastName %></td>
+                  <td><%= pitcher.team %></td>
+                  <td><%= pitcher.jerseyNo %></td>
+                  <td><%= pitcher.throws %></td>
+                  <td><%= pitcher.era %></td>
+                  <td><%= pitcher.wins %></td>
+                  <td><%= pitcher.losses %></td>
+                  <td><%= pitcher.birthdate.toDateString() %></td>
+                  <td><a href="/pitchers/<%= pitcher._id %>">DETAILS</a></td>
+              </tr>
+          <% }); %>
+      </tbody>
+  </table>
   </body>
 </html>

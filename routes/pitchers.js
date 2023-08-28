@@ -9,6 +9,6 @@ router.get('/index', pitchersCtrl.index);
 // GET /pitchers/new
 router.get('/new', ensureLoggedIn, pitchersCtrl.new);
 // GET /pitchers/:id (show functionality) MUST be below new route
-
+router.post('/index', ensureLoggedIn, pitchersCtrl.create);
 	
 module.exports = router;

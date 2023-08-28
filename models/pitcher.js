@@ -44,8 +44,8 @@ const pitcherSchema = new Schema({
         required: true,
     },
     userId: {
-        type: Schema.Types.ObjectId, // Assuming user IDs are stored as ObjectIds
-        ref: 'User', // Reference to the User model
+        type: Schema.Types.ObjectId,
+        ref: 'User',
         required: true,
     },
     

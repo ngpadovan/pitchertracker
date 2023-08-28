@@ -1,0 +1,77 @@
+<%- include('../partials/header') %>
+
+
+<table>
+    <tr>
+      <th>Name:</th>
+      <td><%= pitcher.firstName %> <%= pitcher.lastName %></td>
+    </tr>
+    <tr>
+      <th>Team:</th>
+      <td><%= pitcher.team %></td>
+    </tr>
+    <tr>
+      <th>Jersey Number:</th>
+      <td><%= pitcher.jerseyNo %></td>
+    </tr>
+    <tr>
+      <th>Throws:</th>
+      <td><%= pitcher.throws %></td>
+    </tr>
+    <tr>
+      <th>ERA:</th>
+      <td><%= pitcher.era %></td>
+    </tr>
+    <tr>
+      <th>Win - Loss:</th>
+      <td><%= pitcher.wins %> - <%= pitcher.losses %></td>
+    </tr>
+    <tr>
+      <th>Birthdate (Age):</th>
+      <td><%= pitcher.birthdate.toDateString() %></td>
+    </tr>
+  </table>
+
+  <h2>Game Log</h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Opponent</th>
+        <th>Outcome</th>
+        <th>ERA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% gameLog.forEach(function(log) { %>
+      <tr>
+        <td><%= log.date.toDateString() %></td>
+        <td><%= log.opponent %></td>
+        <td><%= log.outcome %></td>
+        <td><%= log.era %></td>
+      </tr>
+      <% }); %>
+    </tbody>
+  </table>
+
+    <form id="game-log-form" action="/pitchers/<%= pitcher._id %>" method="POST">
+        <label>Date:</label>
+        <input type="date" name="date" required>
+    
+        <label>Opponent:</label>
+        <input type="text" name="opponent" required>
+    
+        <label>Outcome:</label>
+        <select name="outcome" required>
+          <option value="Win">Win</option>
+          <option value="Loss">Loss</option>
+          <option value="No Decision">No Decision</option>
+        </select>
+    
+        <label>ERA:</label>
+        <input type="text" name="era">
+    
+        <input type="submit" value="Add Game">
+      </form>
+  </section>

@@ -72,7 +72,7 @@ table {
 th, td {
   border: 1px solid #ddd;
   padding: 8px;
-  text-align: left;
+  text-align: center;
 }
 
 th {
@@ -89,3 +89,9 @@ h3 {
   text-align: center;
 }
 
+h2 {
+  text-align: center;
+}
+#game-log-form {
+  align-tracks: center;
+}

@@ -5,7 +5,7 @@ const pitchersCtrl = require('../controllers/pitchers');
 const ensureLoggedIn = require('../config/ensureLoggedIn');
 	
 // GET /pitchers
-router.get('/', pitchersCtrl.index);
+router.get('/index', pitchersCtrl.index);
 // GET /pitchers/new
 router.get('/new', ensureLoggedIn, pitchersCtrl.new);
 // GET /pitchers/:id (show functionality) MUST be below new route

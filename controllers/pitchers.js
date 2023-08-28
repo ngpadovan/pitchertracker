@@ -6,8 +6,8 @@ module.exports = {
   };
 
 async function index(req, res) {
-  const movies = await Pitcher.find({});
-  res.render('pitchers/index', { title: 'All Pitchers', pitchers });
+  const pitchers = await Pitcher.find({});
+  res.render('pitchers/index', { title: 'My Pitchers', pitchers });
 }
 
 function newPitcher(req, res) {

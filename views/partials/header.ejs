@@ -10,15 +10,17 @@
 </head>
 <body>
   <nav>
-    <a href="/pitchers" <%- title === 'All Pitchers' ? 'class="active"' : '' %>>ALL PITCHERS</a>
+    <a href="/pitchers/index" <%- title === 'My Pitchers' ? 'class="active"' : '' %>>MY PITCHERS</a>
+    |
+    <a href="/">TOP MLB PITCHERS</a>
+    |
     <% if (user) { %>
-      <a href="/performers/new"	<%- title === 'Add Performer' ? 'class="active"' : '' %>>
-      ADD PERFORMER</a>
       <a href="/pitchers/new" <%- title === 'Add Pitcher' ? 'class="active"' : '' %>>ADD PITCHER</a>
-      <a href="/logout">LOG OUT</a>
+      <a href="/logout" class="logout">LOG OUT</a>
     <% } else { %>
       <a href="/auth/google" class="login">LOG IN&nbsp;<img src="https://i.imgur.com/FHjYyi0.png"></a>
     <% } %>
   </nav>
+  
   <main>
    

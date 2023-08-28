@@ -1,0 +1,38 @@
+<%- include('../partials/header') %>
+
+<form id="new-pitcher-form" action="/pitchers/all" method="POST">
+    <label>First Name:</label>
+    <input type="text" name="firstName" required>
+    
+    <label>Last Name:</label>
+    <input type="text" name="lastName" required>
+    
+    <label>Team:</label>
+    <input type="text" name="team" required>
+    
+    <label>Jersey Number:</label>
+    <input type="number" name="jerseyNo" required min="1">
+    
+    <label>Throws:</label>
+    <select name="throws" required>
+      <option value="RHP">RHP</option>
+      <option value="LHP">LHP</option>
+    </select>
+    
+    <label>ERA:</label>
+    <input type="" name="era" required step="any">
+    
+    <label>Wins:</label>
+    <input type="number" name="wins" required min="0">
+    
+    <label>Losses:</label>
+    <input type="number" name="losses" required min="0">
+    
+    <label>Birthdate:</label>
+    <input type="date" name="birthdate" required>
+    
+    <input type="submit" value="Add Pitcher">
+  </form>
+  
+
+<%- include('../partials/footer') %>

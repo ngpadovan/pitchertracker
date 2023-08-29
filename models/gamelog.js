@@ -21,9 +21,6 @@ const gameLogSchema = new Schema({
       enum: ['Win', 'Loss', 'No Decision'],
       required: true,
     },
-    era: {
-      type: Number,
-    },
   });
   
   module.exports = mongoose.model('GameLog', gameLogSchema);

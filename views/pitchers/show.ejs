@@ -1,6 +1,6 @@
 <%- include('../partials/header') %>
 
-
+<a href="/pitchers/<%= pitcher._id %>/editdelete" class="update">Update/Delete Pitcher</a>
 <table>
     <tr>
       <th>Name:</th>
@@ -40,7 +40,6 @@
         <th>Date</th>
         <th>Opponent</th>
         <th>Outcome</th>
-        <th>ERA</th>
       </tr>
     </thead>
     <tbody>
@@ -49,7 +48,6 @@
         <td><%= log.date.toDateString() %></td>
         <td><%= log.opponent %></td>
         <td><%= log.outcome %></td>
-        <td><%= log.era %></td>
       </tr>
       <% }); %>
     </tbody>
@@ -68,9 +66,6 @@
           <option value="Loss">Loss</option>
           <option value="No Decision">No Decision</option>
         </select>
-    
-        <label>ERA:</label>
-        <input type="text" name="era">
     
         <input type="submit" value="Add Game">
       </form>

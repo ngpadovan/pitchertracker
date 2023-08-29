@@ -95,3 +95,44 @@ h2 {
 #game-log-form {
   text-align: center;
 }
+
+.update {
+  display: block;
+  text-align: center;
+  margin: 20px auto 0;
+  font-size: 18px;
+  color: red;
+}
+
+#edit-pitcher-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#edit-pitcher-form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+#edit-pitcher-form input,
+#edit-pitcher-form select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+#edit-pitcher-form input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#edit-pitcher-form input[type="submit"]:hover {
+  background-color: #0056b3;
+}

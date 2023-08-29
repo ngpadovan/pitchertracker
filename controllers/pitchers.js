@@ -5,8 +5,19 @@ module.exports = {
     index,
     new: newPitcher,
     create,
-    show
+    show,
+    edit,
+    update
   };
+
+  async function edit(req, res) {
+    try {
+      const pitcher = await Pitcher.findById(req.params.id);
+      res.render('pitchers/editdelete', { title: 'Edit Pitcher', pitcher });
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
 async function index(req, res) {
   const pitchers = await Pitcher.find({});
@@ -14,8 +25,6 @@ async function index(req, res) {
 }
 
 function newPitcher(req, res) {
-  // We'll want to be able to render an  
-  // errorMsg if the create action fails
   res.render('pitchers/new', { title: 'Add pitcher', errorMsg: '' });
 }
 
@@ -25,20 +34,6 @@ async function show(req, res) {
   res.render('pitchers/show', { title: 'Pitcher Details', pitcher, gameLog });
 
 }
-
-// async function create(req, res) {
-//   try {
-//     for (let key in req.body) {
-//         if (req.body[key] === '') delete req.body[key];
-//     }
-//     await Pitcher.create(req.body);
-//     res.redirect('/pitchers/index');
-// } catch (error) {
-//     // Handle errors here, e.g., validation errors or database errors
-//     console.error('Error:', error);
-//     res.status(500).send('An error occurred');
-// }
-// };
 
 async function create(req, res) {
   try {
@@ -50,8 +45,23 @@ async function create(req, res) {
       }
     } await pitcher.save();
     res.redirect(`/pitchers/index`);
-  } catch (error) {
-    console.error('Error:', error);
+  } catch (err) {
+    console.log(err);
     res.redirect('/pitchers/new');
+  }
+}
+
+async function update(req, res) {
+  try {
+    const pitcher = await Pitcher.findById(req.params.id);
+    for (let key in req.body) {
+      if (req.body[key] !== '') {
+        pitcher[key] = req.body[key];
+      }
+    }
+    await pitcher.save();
+    res.redirect(`/pitchers/${pitcher._id}`);
+  } catch (err) {
+    console.log(err);
   }
 }

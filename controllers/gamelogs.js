@@ -20,6 +20,6 @@ async function create(req, res) {
         res.redirect(`/pitchers/${req.params.id}`)
     } catch(err) {
         console.log(err)
-        res.redirect(`/ptchers/${req.params.id}`)    }
+        res.redirect(`/pitchers/${req.params.id}`)    }
 }
 

@@ -8,10 +8,12 @@
   </head>
   <body>
     <h1><%= title %></h1>
+    <form id="delete-pitcher-button" action="/pitchers/<%= pitcher._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Pitcher</button>
+    </form>
     <body>
         
         <form id="edit-pitcher-form" action="/pitchers/<%= pitcher._id %>?_method=PUT" method="POST">
-            <input type="hidden" name="_method" value="PUT">
             
             <label>First Name:</label>
             <input type="text" name="firstName" value="<%= pitcher.firstName %>" required>

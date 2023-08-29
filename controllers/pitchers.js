@@ -7,7 +7,8 @@ module.exports = {
     create,
     show,
     edit,
-    update
+    update,
+    delete: deletePitcher
   };
 
   async function edit(req, res) {
@@ -61,6 +62,16 @@ async function update(req, res) {
     }
     await pitcher.save();
     res.redirect(`/pitchers/${pitcher._id}`);
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+async function deletePitcher(req, res) {
+  try {
+    await Pitcher.findByIdAndRemove(req.params.id);
+    await GameLog.deleteMany({ pitcher: req.params.id });
+    res.redirect('/pitchers/index');
   } catch (err) {
     console.log(err);
   }

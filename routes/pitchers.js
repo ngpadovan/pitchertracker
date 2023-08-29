@@ -10,5 +10,6 @@ router.get('/:id', pitchersCtrl.show);
 router.post('/index', ensureLoggedIn, pitchersCtrl.create);
 router.get('/:id/editdelete', ensureLoggedIn, pitchersCtrl.edit);
 router.put('/:id', ensureLoggedIn, pitchersCtrl.update);
+router.delete('/:id', ensureLoggedIn, pitchersCtrl.delete);
 
 module.exports = router;

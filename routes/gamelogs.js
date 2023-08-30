@@ -5,6 +5,6 @@ const gameLogsCtrl = require('../controllers/gamelogs');
 
 
 router.get('/pitchers/:id', gameLogsCtrl.new);
-router.post('/pitchers/:id/gamelogs', gameLogsCtrl.create);
+router.post('/pitchers/:id', gameLogsCtrl.create);
 
 module.exports = router;

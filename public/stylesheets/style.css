@@ -1,6 +1,7 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: sans-serif;
+  font-size: 14px;
 }
 
 a {
@@ -21,6 +22,7 @@ a {
 #new-pitcher-form {
   max-width: 600px;
   margin: 0 auto;
+  margin-top: 20px;
 }
 
 #new-pitcher-form label {
@@ -60,7 +62,7 @@ a {
 body {
   background-color: navy;
   color: white;
-  font-family: 'Your Custom Font', sans-serif;
+  font-family:  sans-serif;
 }
 
 table {
@@ -135,4 +137,12 @@ h2 {
 
 #edit-pitcher-form input[type="submit"]:hover {
   background-color: #0056b3;
+}
+#delete-pitcher-button {
+  text-align: center;
+}
+
+#delete-pitcher-button button:hover {
+  background-color: red;
+  color: white;
 }

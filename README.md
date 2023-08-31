@@ -1,4 +1,4 @@
-# pitchertracker: 
+# pitchertracker: https://pitchertracker-68458bb6385a.herokuapp.com/
 PitcherTracker: this app allows users to log their favorite pitchers to track their stats and game history
 
 Screenshots:
